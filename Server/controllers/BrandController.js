@@ -5,7 +5,7 @@ class BrandController {
 
     // [GET] /api/brands
     getBrand(req, res, next) {
-        Brand.find({})
+        Brand.find({}).sort({'createdAt': -1})
         .then(bra => {
             res.json(bra);
         })

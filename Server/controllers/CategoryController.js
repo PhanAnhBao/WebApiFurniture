@@ -5,7 +5,7 @@ class CategoryController {
 
     // [GET] /api/categories
     getCategory(req, res, next) {
-        Category.find({})
+        Category.find({}).sort({'createdAt': -1})
         .then(cate => {
             res.json(cate);
         })

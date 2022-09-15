@@ -11,7 +11,7 @@ class ProductController {
 
     // [GET] /api/products
     getProduct(req, res, next) {
-        Product.find({}).populate('brandIds')
+        Product.find({}).populate('brandIds').sort({'createdAt': -1})
             .then(product => {
                 res.json(product);
             })
@@ -33,7 +33,7 @@ class ProductController {
 
     // [GET] /api/products/limit
     getProductLimited(req, res, next) {
-        Product.find({})
+        Product.find({}).sort({'createdAt': -1})
             .limit(9)
             .then(product => {
                 res.json(product);

@@ -4,7 +4,7 @@ class EmployeeController {
 
     // [GET] /api/employees
     getEmployee(req, res, next) {
-        Employee.find({})
+        Employee.find({}).sort({'createdAt': -1})
             .then(cus => {
                 res.json(cus);
             })
@@ -45,7 +45,7 @@ class EmployeeController {
                 }
             })
     }
-    // [POST] /api/employees/store
+    // [POST] /api/employees/login
     login(req, res, next) {
         const email = req.body.admin_email;
         const pass = req.body.admin_password;
